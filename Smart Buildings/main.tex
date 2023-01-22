@@ -1,0 +1,113 @@
+\documentclass{report}
+\usepackage[utf8]{inputenc}
+\usepackage{graphics}
+\graphicspath{ {./images/} }
+\usepackage{multicol}
+
+% width,height
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+
+\title{IOT - Research Paper Summary}
+\author{Shreya Sevelar}
+\date{\today}
+
+\begin{document}
+
+    \input{titlepage}
+    
+    \begin{center}
+        \section*{ICT Solutions for Smart Buildings}
+    \end{center}
+\setlength{\columnsep}{1.0cm}
+    \large
+    \section*{Summary}
+        Cities are faced with a number of challenges associated with accommodation, atmosphere,
+    transport and infrastructural development, making difficult for urban communities and cities to
+    realise their objectives. In recent years, cities have been turning to advanced technologies to become Smart Cities, i.e cities that use Information and Communication Technological (ICT)
+    solutions to implement goals related to sustainability and energy conservation. Increasing energy demand, as well as the scarcity of energy resources makes energy conservation an important goal for smart cities to solve. \\
+
+
+    As a result, a vision of the Smart Building as an environment that combines ambient intelligence and home automation, in order to enable the provision of high-level services to the residents that will ensure increasing comfort and safety within the house, as well as energy efficiency and rational management of resources emerged. This paper presents an advanced IoT-based system for intelligent energy management in buildings.\\
+
+
+    More specifically, a semantic framework for the unified and standardized modelling of all entities that constitute the environment of Smart Buildings, as well as their properties and relations, is proposed. The semantic model allows several systems to communicate with each other easily.
+    This semantic modelling aims to be a realistic and alternative approach that is expected to resolve many of the current issues faced by the Smart Buildings market, as well as to improve knowledge reasoning and decision-making. Suitable rules are formed, aiming at the intelligent energy management and the general modus operandi of Smart Building.\\ 
+
+    In this context, a web-based tool was implemented, which enhances the interactivity of buildings’ energy management systems. The proposed tool collects, stores and represents in real-time the energy data of buildings. Based on real-time data (from heterogeneous and dynamic sources: building’s data, energy production, energy prices, weather data and end-users’ behaviour), as well as predicted data produced by prediction models (renewable energy production, energy consumption, indoor temperature and energy prices), the tool introduces a list of practical action plans for the buildings’ occupants, structured upon a number of rules. The results from its pilot application are presented and discussed.\\
+
+
+
+    
+    
+    \section*{Key contribution/ideas from the author}
+    %our understanding on what the authors have contributed or raised as comments regarding the topic.
+    The proposed system extends existing approaches and integrates cross-domain data, such as
+building’s data (e.g., energy management systems and other de-centralized sensor-based data), energy production, energy prices, weather data and end-users’ behaviour, in order to produce daily and weekly action plans for the energy end-users with actionable personalised information. These action plans are based on the data captured and short-term predictions of the user’s behaviour and energy usage. They include notifications for certain thresholds, analytical tailor-made recommendations and saving tips in the users’ daily routines (e.g., load shifting, occupancy, set-point adjustment).
+
+\begin{enumerate}
+    
+    \item\subsection*{Sensing Layer} 
+    \subsubsection{Data Capturing Modules}
+    There are five data capturing modules, which collect data from different source (building’s data, energy production, energy prices, weather data and end-users’ behaviour).\textbf{Python} or \textbf{Java} applications have been used for the development of the data capturing modules.
+
+
+    \begin{enumerate}
+        \item \textbf{Decentralized Sensors} indicate the real-time conditions on the spot by providing measurements of
+        specific parameters such as the energy consumption, indoor temperature and humidity, etc.
+        \item \textbf{Renewable Energy Sources module} informs the level of self-production of energy of the connected renewable energy systems
+        \item \textbf{Weather Forecast module} to compare the forecast to the actual field conditions to create real time energy balances
+        \item \textbf{Energy Price module} to adjust energy usage based on the tariffs
+        \item \textbf{Occupants Feedback module} to  gather feedback about comfort levels of occupants and other energy-related issues
+
+
+    \end{enumerate}
+
+    \item\subsection*{Network Layer}
+    \subsubsection{Semantic Framework}
+    The  communication system integrates data from multiple sources (monitoring systems, Web Services, CSV files, etc.) and domains, and contextualizes them, using \textbf{Semantic Web} technologies. It is based on the publish-and-subscribe communication pattern. It has been implemented with the \textbf{Ztreamy} system, a semantic service implemented as a Python application. This service processes and contextualizes the data acquired from multiple sources. The Semantic Framework uses the Virtuoso triple-store as a data repository.\\
+
+    To facilitate communication between systems, an ontology was created titled \textbf{OPTIMUS ontology} for all entities in the Smart Building environment. This was built on the existing Urban Energy
+    ontology (for static data) and Semantic Sensor Network ontology (for dynamic data).The domain terms that already exist in the Urban Energy model have been used while those that are not included in it have been created as concepts of the OPTIMUS ontology.\\
+
+    \item\subsection*{Data Processing Layer}
+    \subsubsection{Action Engine}
+    The action engine integrates prediction models, rules and a \textbf{MariaDB database} to store the results.\\
+
+    The prediction models are data-driven models to forecast the energy behaviour of a building
+    according to some specific indicators (e.g., renewable energy production, energy consumption, indoor temperature and energy prices). The prediction models are automatically estimated and customized per building given the measure to be forecasted and the data available (e.g., external variables and length of historical data). The estimated model can then be directly used to predict in a reliable and accurate way the measure across the upcoming week. Different types of models (\textit{times-series, Multiple Linear Regression—MLR, etc.}) are considered and the best-fitted one is selected and parameterized per case to achieve the best performance. The prediction models have been implemented as \textbf{R scripts and RapidAnalytics} processes.\\
+    
+    These models, along with certain logic based rules implemented as  \textbf{Symfony PHP} web application can generate an \textit{Action Plan} which suggests better management of the building to decrease energy consumption. 
+
+    \item\subsection*{Application Layer}
+        A web-based system was implemented, integrating the above-mentioned architecture. An
+    important function of the tool is the immediate and complete virtual distribution on the Internet
+    of the energy consumption in buildings. Thus, the user can be constantly updated on the energy
+    consumption and other indicators (energy cost, CO2 emissions, etc.) wherever located, always with
+    the ease of use of the website.\\
+
+    The next section of the paper discusses an experiment carried out in a building and compares the energy consumption before and after the action plan is implemented. 
+    
+ \end{enumerate}
+
+    \section*{My views about this paper}
+    %Your views on the topic, along with what you envision the future of AI would be in the topic discussed in the paper.
+    The paper explores a very pertinent issue in the world economy, i.e energy conservation using technology. Already, several cities around the globe are being converted into Smart Cities. This paper presents an interesting idea of allowing the occupants to visualise exactly the way in which energy is being used within the building and also generate an action plan to save energy usage based on their use of the building at the moment, which provides a way to dynamically change the way energy is being used. Taking into account the user comfort levels and setting that to be a priority is also a novel idea, and one that ensures the widespread adoption of this technology. 
+    
+    \section*{Agreement, Pitfalls and Fallacies}
+    %State what and why do you agree and disagree with the views presented in the paper. You can present this as a table, with the list of your agreements and disagreements on the key aspects of the paper (For example, you might feel that the conclusions drawn by the authors towards the claims made in the research might not agree to your views. Or else, you very well resonate with the thoughts of the author. In either case, you must list the same in brief phrases, and state the reason for each agreement/disagreement. The list can have as many as your understanding permits).
+    Taking into consideration the initial cost for the installation and operation of the system, the average annual energy savings as derived from the system pilot application and the annual maintenance cost, the payback period is estimated at two years approximately. This seems to be a reasonable timeframe for most private and public sectors to implement in their buildings and ultimately, cities. \\
+   
+    The benefits to the environment are:
+    \begin{itemize}
+        \item reduced co2 emissions
+        \item reduced energy consumption
+    \end{itemize}
+
+    The benefits to the users are:
+    \begin{itemize}
+        \item Reduced cost of energy
+        \item Seamless user experience through integrated smart home systems
+    \end{itemize}
+    
+\end{document}
+
